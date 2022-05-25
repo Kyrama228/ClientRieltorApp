@@ -1,0 +1,60 @@
+﻿<Page x:Class="ClientRieltorApp.Pages.PageForRieltor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClientRieltorApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageForRieltor">
+
+    <Grid Background="#7CA9F4">
+        <ListView SelectionMode="Single"
+                  x:Name="RieltorListView"
+                  Height="600"
+                  Width="800"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  Background="#CADCFA">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="MediumPurple"
+                            BorderThickness="0.5">
+                        <StackPanel Height="500"
+                                    Width="350">
+                            <Image Height="150"
+                                   Width="150"
+                                   x:Name="RieltorImage"
+                                   Source="{Binding Image}"
+                                   MouseDown="RieltorImage_MouseDown"
+                                   MouseUp="RieltorImage_MouseUp"/>
+                            <WrapPanel Orientation="Horizontal"
+                                       HorizontalAlignment="Center" 
+                                       >
+                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text="{Binding Cost}"
+                                           Margin="5,0,5,0"/>
+                                <TextBlock Text="rub."/>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"
+                               HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+            <Button Height="25" Width="150" x:Name="AddBtn" Margin="5" Content="Добавить" Click="Addbtn_Click"/>
+            <Button Height="25" Width="150" x:Name="EditBtn" Margin="5" Content="Изменить" Click="Editbtn_Click"/>
+            <Button Height="25" Width="150" x:Name="DelBtn" Margin="5" Content="Удалить" Click="Deletebtn_Click"/>
+            <Button x:Name="GoBack"
+                Content="Назад"
+                Height="25"
+                Width="150"
+                Click="GoBack_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
